@@ -57,28 +57,34 @@
 
 <h1>🔥 MARKETPLACE AKUN GAME 🔥</h1>
 
-<div class="container">
+<div class="container" id="cardsContainer">
+</div>
 
-  <div class="card">
-    <h2>Mobile Legends</h2>
-    <p>Rank Mythic</p>
-    <p>Harga: Rp 250.000</p>
-    <button onclick="window.open('https://wa.me/6285773293327?text=Halo%20Saya%20mau%20beli%20Mobile%20Legends','_blank')">Beli Sekarang</button>
-  </div>
+<script>
+  const akunGame = [
+    {nama:"Mobile Legends", rank:"Mythic", harga:"Rp 250.000"},
+    {nama:"Free Fire", rank:"Level 70 + Banyak Skin", harga:"Rp 150.000"},
+    {nama:"PUBG Mobile", rank:"Conqueror + Skin Rare", harga:"Rp 300.000"},
+    {nama:"Call of Duty Mobile", rank:"Master", harga:"Rp 200.000"},
+    {nama:"Genshin Impact", rank:"Level 50", harga:"Rp 180.000"}
+  ];
 
-  <div class="card">
-    <h2>Free Fire</h2>
-    <p>Level 70 + Banyak Skin</p>
-    <p>Harga: Rp 150.000</p>
-    <button onclick="window.open('https://wa.me/6285773293327?text=Halo%20Saya%20mau%20beli%20Free%20Fire','_blank')">Beli Sekarang</button>
-  </div>
+  const nomorWA = "6285773293327";
 
-  <div class="card">
-    <h2>PUBG Mobile</h2>
-    <p>Conqueror + Skin Rare</p>
-    <p>Harga: Rp 300.000</p>
-    <button onclick="window.open('https://wa.me/6285773293327?text=Halo%20Saya%20mau%20beli%20PUBG','_blank')">Beli Sekarang</button>
-  </div>
+  const container = document.getElementById("cardsContainer");
+
+  akunGame.forEach(akun => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h2>${akun.nama}</h2>
+      <p>${akun.rank}</p>
+      <p>Harga: ${akun.harga}</p>
+      <button onclick="window.open('https://wa.me/${nomorWA}?text=Halo%20Saya%20mau%20beli%20${encodeURIComponent(akun.nama)}','_blank')">Beli Sekarang</button>
+    `;
+    container.appendChild(card);
+  });
+</script>
 
 </div>
 
